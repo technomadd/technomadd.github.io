@@ -2,10 +2,10 @@
 //grades.sort(function compN(a, b) { return a -b; });
 var grades = [];
 d3.tsv('data.tsv')
-    .then function(data) {
+    .then (function(data) {
         for (key in data) {
-            grades.push(+data[key].value)
-        }
+            grades.push(+data[key].value) }
+        
 var tooltip = d3.select('body').append('div')
     .style('position', 'absolute')
     .style('padding', '0 10px')
@@ -63,4 +63,4 @@ graph.selectAll('rect')
 graph.append('g')
     .call(d3.axisBottom(xS))
     .attr('transform', 'translate(0, ' + height + ')');
-    }
+    });
