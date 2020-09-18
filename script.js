@@ -63,3 +63,4 @@ graph.selectAll('rect')
 graph.append('g')
     .call(d3.axisBottom(xS))
     .attr('transform', 'translate(0, ' + height + ')');
+    }
