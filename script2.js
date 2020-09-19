@@ -2,18 +2,18 @@
 //grades.sort(function compN(a, b) { return a -b; });
 //var grades = [];
 var students = [];
-/*d3.json("hw3data.json", function(error, data) {
+d3.json("hw3data.json", (function(error, data) {
 
     data.forEach(function(d) {
         d.term = d.term;
         d.students = +d.students;
-    });*/
+    });
 
 //d3.tsv('data.tsv')
-d3.json('hw3data.json')
+/*d3.json('hw3data.json')
     .then (function(data) {
         for (key in data) {
-           students.push(+data[key].value) }
+           students.push(+data[key].value) }*/
         
 var tooltip = d3.select('body').append('div')
     .style('position', 'absolute')
