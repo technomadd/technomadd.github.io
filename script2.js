@@ -2,7 +2,7 @@
 //grades.sort(function compN(a, b) { return a -b; });
 //var grades = [];
 var students = [];
-d3.json("hw3data.json", (function(error, data) {
+d3.json("hw3data.json", function(error, data) {
 
     data.forEach(function(d) {
         d.term = d.term;
