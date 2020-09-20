@@ -44,7 +44,7 @@ var margin = {top: 20, right: 20, bottom: 70, left: 40},
     height = 300 - margin.top - margin.bottom;
 
 
-// set the ranges
+// set the ranges - note: padding sets the individual bar width
 //var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
 var x = d3.scaleBand()
     .rangeRound([0, width])
@@ -108,7 +108,7 @@ d3.json("hw3data.json", function(_error, data) {
       .call(yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", -40)
+      .attr("y", 0)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Students");
