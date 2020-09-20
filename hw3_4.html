@@ -71,16 +71,17 @@ var yAxis = d3.axisLeft(y)
 
 
 // add the SVG element
-var svg = d3.select("body").append("svg")
+var svg = d3.select("body")
+    .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", 
           "translate(" + margin.left + "," + margin.top + ")");
 
 
 // load the data
-d3.json("hw3data.json", function(error, data) {
+d3.json("hw3data.json", function(data) {
 
     data.forEach(function(d) {
         d.term = d.term;
