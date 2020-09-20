@@ -81,7 +81,7 @@ var svg = d3.select("body")
 
 
 // load the data
-d3.json("hw3data.json", function(data) {
+d3.json("hw3data.json", function(_error, data) {
 
     data.forEach(function(d) {
         d.term = d.term;
@@ -120,7 +120,8 @@ d3.json("hw3data.json", function(data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.term); })
-      .attr("width", x.rangeBand())
+      //.attr("width", x.rangeBand())
+      .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.students); })
       .attr("height", function(d) { return height - y(d.students); });
 
