@@ -120,8 +120,8 @@ d3.json("hw3data.json", function(_error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.term); })
-      .attr("width", x.rangeBand())
-      //.attr("width", x.bandwidth())
+      //.attr("width", x.rangeBand())
+      .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.students); })
       .attr("height", function(d) { return height - y(d.students); });
 
