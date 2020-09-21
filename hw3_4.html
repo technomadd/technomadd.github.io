@@ -113,6 +113,16 @@ d3.json("hw3data.json", function(_error, data) {
       .style("text-anchor", "end")
       .text("Students");*/
 
+      svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .attr("fill", "#5D6971")
+      .text("Students");
 
   // Add bar chart
   svg.selectAll("bar")
