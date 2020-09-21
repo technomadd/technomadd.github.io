@@ -26,7 +26,7 @@
   body{
   /*background: #1a1a1a;
   color : #eaeaea;*/
-  padding : 10px;
+  padding : 20px;
 }
 
 	</style>
@@ -34,7 +34,6 @@
 
 <body>
 	
-<!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 <script>
@@ -44,28 +43,19 @@ var margin = {top: 20, right: 20, bottom: 70, left: 40},
     height = 300 - margin.top - margin.bottom;
 
 
-// set the ranges - note: padding sets the individual bar width
-//var x = d3.scale.ordinal().rangeRoundBands([0, width], .05);
+// set the x range - note: padding sets the individual bar width
 var x = d3.scaleBand()
     .rangeRound([0, width])
     .padding(0.1);
 
-//var y = d3.scale.linear().range([height, 0]);
+// set the y range
 var y = d3.scaleLinear()
     .range([height, 0]);
 
-
-
-// define the axis
-/*var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom")*/
+// define the x axis
 var xAxis = d3.axisBottom(x);
 
-/*var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .ticks(10);*/
+//define the y axis
 var yAxis = d3.axisLeft(y)
     .ticks(10);
 
@@ -92,7 +82,7 @@ d3.json("hw3data.json", function(_error, data) {
   x.domain(data.map(function(d) { return d.term; }));
   y.domain([0, d3.max(data, function(d) { return d.students; })]);
 
-  // add axis
+  // add x axis
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
@@ -102,7 +92,7 @@ d3.json("hw3data.json", function(_error, data) {
       .attr("dx", "1.2em")
       .attr("dy", ".55em");
       
-
+ // add y axis
       svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
@@ -121,7 +111,6 @@ d3.json("hw3data.json", function(_error, data) {
     .enter().append("rect")
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.term); })
-      //.attr("width", x.rangeBand())
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.students); })
       .attr("height", function(d) { return height - y(d.students); });
